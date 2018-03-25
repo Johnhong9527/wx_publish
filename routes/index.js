@@ -40,13 +40,13 @@ router.get('/info', function(req, res, next) {
   let $res = res;
 	console.log('/info');
   console.log(params);
-	// let info = `https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxd1271417044b9709&secret=07f11a1a4aa8b4279daf9d21884916e8&code=${params.code}&grant_type=authorization_code`;
+	let info = `https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxd1271417044b9709&secret=07f11a1a4aa8b4279daf9d21884916e8&code=${params.code}&grant_type=authorization_code`;
 
-	/*axios.get(info).then(res=>{
+	axios.post(info).then(res=>{
 		console.log(res);
 	}).catch(error => {
    	console.log(error);
-  })*/
+  })
 
 
 	/*https.post(info, (res) => {
@@ -61,7 +61,7 @@ router.get('/info', function(req, res, next) {
 	}).on('error', (e) => {
 	  console.error(e);
 	});*/
-  PostCode(params)
+  // PostCode(params)
 	setTimeout(()=>{
 		$res.redirect('/')
 	},200)
