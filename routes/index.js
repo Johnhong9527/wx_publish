@@ -1,5 +1,5 @@
 var express = require('express');
-var $http = require('http');
+const https = require('https');
 var axios = require('axios');
 var router = express.Router();
 // 获取数据
@@ -41,11 +41,26 @@ router.get('/info', function(req, res, next) {
   console.log(params);
 	let info = `https://api.weixin.qq.com/sns/oauth2/access_token?appid=wxd1271417044b9709&secret=07f11a1a4aa8b4279daf9d21884916e8&code=${params.code}&grant_type=authorization_code`;
 
-	axios.get(info).then(res=>{
+	/*axios.get(info).then(res=>{
 		console.log(res);
 	}).catch(error => {
    	console.log(error);
-  })
+  })*/
+
+
+	https.get(info, (res) => {
+		console.log(res)
+	  // console.log('statusCode:', res.statusCode);
+	  // console.log('headers:', res.headers);
+
+	  res.on('data', (d) => {
+	    process.stdout.write(d);
+	  });
+
+	}).on('error', (e) => {
+	  console.error(e);
+	});
+
 	setTimeout(()=>{
 		$res.redirect('/')
 	},200)
