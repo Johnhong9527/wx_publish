@@ -93,7 +93,7 @@ function PostCode(params) {
   // An object of options to indicate where to post to
   var post_options = {
       host: 'https://api.weixin.qq.com/sns/oauth2/access_token',
-      port: '80',
+      // port: '80',
       // path: '/compile',
       method: 'POST',
       headers: {
