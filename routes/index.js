@@ -48,7 +48,7 @@ router.get('/info', function(req, res, next) {
   })*/
 
 
-	https.get(info, (res) => {
+	https.post(info, (res) => {
 		console.log(res)
 	  // console.log('statusCode:', res.statusCode);
 	  // console.log('headers:', res.headers);
