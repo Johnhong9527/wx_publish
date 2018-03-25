@@ -8,6 +8,8 @@ var URL = require('url');
 /* GET home page. */
 
 
+let userInfo = {};
+
 router.get('/',function(req,res,next){
 	let params = URL.parse(req.url, true).query;
 	// console.log(params.echostr);
@@ -45,6 +47,7 @@ router.get('/info', function(req, res, next) {
 	axios.post(info).then(res=>{
 		if(res.status == 200){
 			console.log(res.data);
+			userInfo = res.data;
 			$res.redirect('/')
 		}
 	}).catch(error => {
@@ -73,6 +76,12 @@ router.get('/info', function(req, res, next) {
   
   // res.render('index', { title: 'Express' });
 });
+
+
+router.get('/userInfo',function(req,res,next){
+	// let params = URL.parse(req.url, true).query;
+	res.send(userInfo);
+})
 
 
 router.get('/user',function(req,res,next){
