@@ -5,7 +5,7 @@ var URL = require('url');
 /* GET home page. */
 
 
-router.get('/',function(req,res,next){
+router.get('/token',function(req,res,next){
 	let params = URL.parse(req.url, true).query;
 	console.log(params.echostr);
 	console.log(123);
