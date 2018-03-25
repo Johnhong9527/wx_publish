@@ -1,0 +1,13 @@
+[
+  {
+    "author":"$(author[i]).html().substr(3)",
+    "genxin": {
+      "url": "$(genxin[i]).attr('href')",
+      "status": "$(genxin[i]).html()"
+    },
+    "waps_full": "$(waps_full_0[i]).html()",
+    "waps_Name": "$(waps_name[i]).html()",
+    "waps_sort": "$(waps_sort[i]).html()",
+    "book_url": "$(waps_name[i]).attr('href')"
+  }
+]
