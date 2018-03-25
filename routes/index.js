@@ -103,7 +103,7 @@ function PostCode(params) {
   };
 
   // Set up the request
-  var post_req = http.request(post_options, function(res) {
+  var post_req = https.request(post_options, function(res) {
       res.setEncoding('utf8');
       res.on('data', function (chunk) {
       	console.log(chunk);
