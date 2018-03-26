@@ -2,11 +2,12 @@ var express = require('express');
 const https = require('https');
 var querystring = require('querystring');
 var axios = require('axios');
+var qs = require('qs');
 var router = express.Router();
 // 获取数据
 var URL = require('url');
 /* GET home page. */
-
+var wx = require('../config/wx');
 
 let userInfo = {};
 
@@ -23,6 +24,19 @@ router.get('/',function(req,res,next){
 })
 
 
+router.get('/login',function (req, res, next) {
+  /*https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd1271417044b9709&redirect_uri=https://wx.honghaitao.net/info&response_type=code&scope=snsapi_userinfo&state=honghaitao#wechat_redirect*/
+  // let url =
+  res.redirect('https://open.weixin.qq.com/connect/oauth2/authorize',qs.stringify({
+    appid:wx.appid,
+    redirect_uri:'https://wx.honghaitao.net/info',
+    response_type:'code',
+    scope:'snsapi_userinfo',
+    state:'honghaitao#wechat_redirect',
+  }))
+})
+
+// 获取token
 router.get('/token',function(req,res,next){
 	let params = URL.parse(req.url, true).query;
 	console.log(params.echostr);
