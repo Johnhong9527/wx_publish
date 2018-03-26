@@ -22,18 +22,27 @@ router.get('/',function(req,res,next){
 	// console.log(params.code);
 	res.render('index', { title: 'Express' });
 })
+/*
 
+
+Invalid status code: appid=wxd1271417044b9709&redirect_uri=https%3A%2F%2Fwx.honghaitao.net%2Finfo&response_type=code&scope=snsapi_userinfo&state=honghaitao%23wechat_redirect
+
+R
+
+
+ */
 
 router.get('/login',function (req, res, next) {
   /*https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd1271417044b9709&redirect_uri=https://wx.honghaitao.net/info&response_type=code&scope=snsapi_userinfo&state=honghaitao#wechat_redirect*/
   // let url =
-  res.redirect('https://open.weixin.qq.com/connect/oauth2/authorize',qs.stringify({
+  res.redirect('https://open.weixin.qq.com/connect/oauth2/authorize?appid=wxd1271417044b9709&redirect_uri=https://wx.honghaitao.net/info&response_type=code&scope=snsapi_userinfo&state=honghaitao#wechat_redirect')
+  /*res.redirect('https://open.weixin.qq.com/connect/oauth2/authorize',qs.stringify({
     appid:wx.appid,
     redirect_uri:'https://wx.honghaitao.net/info',
     response_type:'code',
     scope:'snsapi_userinfo',
     state:'honghaitao#wechat_redirect',
-  }))
+  }))*/
 })
 
 // 获取token
